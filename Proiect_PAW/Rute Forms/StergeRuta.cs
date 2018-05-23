@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proiect_PAW
 {
-    public partial class StergeRuta : Form
+    public partial class StergeRuta : Rute_Forms.RutaBaseForm
     {
         CompanieAeriana companie;
         public StergeRuta(CompanieAeriana companieAeriana)

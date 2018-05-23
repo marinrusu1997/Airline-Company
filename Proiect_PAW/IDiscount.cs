@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 namespace Proiect_PAW
 {
-    delegate float ApplyDiscount(float suma);
 
     public class IDiscountComparer : IEqualityComparer<IDiscount>
     {

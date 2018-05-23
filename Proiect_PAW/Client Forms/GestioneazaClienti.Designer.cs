@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestioneazaClienti));
             this.lvClienti = new System.Windows.Forms.ListView();
             this.NumeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PrenumeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,15 +50,16 @@
             this.litereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.litereToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSearchTb = new System.Windows.Forms.ToolStripTextBox();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cnMenuStripClienti.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvClienti
             // 
+            this.lvClienti.BackColor = System.Drawing.Color.Azure;
             this.lvClienti.CheckBoxes = true;
             this.lvClienti.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NumeHeader,
@@ -137,19 +139,19 @@
             this.grupeazaToolStripMenuItem,
             this.copyToolStripMenuItem});
             this.cnMenuStripClienti.Name = "cnMenuStripClienti";
-            this.cnMenuStripClienti.Size = new System.Drawing.Size(181, 114);
+            this.cnMenuStripClienti.Size = new System.Drawing.Size(131, 92);
             // 
             // modificaToolStripMenuItem
             // 
             this.modificaToolStripMenuItem.Name = "modificaToolStripMenuItem";
-            this.modificaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificaToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.modificaToolStripMenuItem.Text = "Modifică";
             this.modificaToolStripMenuItem.Click += new System.EventHandler(this.modificaToolStripMenuItem_Click);
             // 
             // stergeToolStripMenuItem
             // 
             this.stergeToolStripMenuItem.Name = "stergeToolStripMenuItem";
-            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stergeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.stergeToolStripMenuItem.Text = "Șterge";
             this.stergeToolStripMenuItem.Click += new System.EventHandler(this.stergeToolStripMenuItem_Click);
             // 
@@ -160,7 +162,7 @@
             this.numeToolStripMenuItem,
             this.sexToolStripMenuItem});
             this.grupeazaToolStripMenuItem.Name = "grupeazaToolStripMenuItem";
-            this.grupeazaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grupeazaToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.grupeazaToolStripMenuItem.Text = "Grupează";
             // 
             // cetatenieToolStripMenuItem
@@ -208,6 +210,13 @@
             this.sexToolStripMenuItem.Text = "Sex";
             this.sexToolStripMenuItem.Click += new System.EventHandler(this.sexToolStripMenuItem_Click);
             // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -229,13 +238,6 @@
             this.toolStripSearchTb.ToolTipText = "Search Input String";
             this.toolStripSearchTb.TextChanged += new System.EventHandler(this.toolStripSearchTb_TextChanged);
             // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
             // GestioneazaClienti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +245,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lvClienti);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "GestioneazaClienti";
             this.Text = "Gestionează Clienți";

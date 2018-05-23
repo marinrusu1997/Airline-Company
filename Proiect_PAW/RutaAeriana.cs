@@ -75,6 +75,11 @@ namespace Proiect_PAW
             return hashCode;
         }
 
+        public override string ToString()
+        {
+            return "Decolare: " + TimpDecolare.ToShortTimeString() + " ,Aterizare: " + TimpAterizare.ToShortTimeString();
+        }
+
         public virtual object Clone()
         {
             return this.MemberwiseClone();
@@ -84,8 +89,9 @@ namespace Proiect_PAW
     public class Zbor : ZborBasic, ICloneable
     {
         private float cost;
-        private int nrLocuri;
+        private int nrLocuriDisponibile;
 
+        public int NumarLocuri { get; internal set; }
         public float Cost
         {
             get { return cost; }
@@ -97,11 +103,11 @@ namespace Proiect_PAW
         }
         public int LocuriDisponibile
         {
-            get { return nrLocuri; }
+            get { return nrLocuriDisponibile; }
             set
             {
                 if (value >= 0)
-                    nrLocuri = value;
+                    nrLocuriDisponibile = value;
             }
         }
 
@@ -113,9 +119,15 @@ namespace Proiect_PAW
             else
                 this.cost = 0;
             if (nrLocuri >= 0)
-                this.nrLocuri = nrLocuri;
+            {
+                this.nrLocuriDisponibile = nrLocuri;
+                NumarLocuri = nrLocuri;
+            }
             else
-                this.nrLocuri = 0;
+            {
+                this.nrLocuriDisponibile = 0;
+                NumarLocuri = 0;
+            }
         }
         public override object Clone()
         {
@@ -136,9 +148,9 @@ namespace Proiect_PAW
                     return 1;
                 else if (this.cost < zbor.cost)
                     return -1;
-                else if (this.nrLocuri > zbor.nrLocuri)
+                else if (this.nrLocuriDisponibile > zbor.nrLocuriDisponibile)
                     return 1;
-                else if (this.nrLocuri < zbor.nrLocuri)
+                else if (this.nrLocuriDisponibile < zbor.nrLocuriDisponibile)
                     return -1;
                 else
                     return 0;
@@ -160,14 +172,14 @@ namespace Proiect_PAW
             if (!base.Equals(obj))
                 return false;
             Zbor zbor = obj as Zbor;
-            return this.cost == zbor.cost && this.nrLocuri == zbor.nrLocuri;
+            return this.cost == zbor.cost && this.nrLocuriDisponibile == zbor.nrLocuriDisponibile && this.NumarLocuri == zbor.NumarLocuri;
         }
 
         public static Zbor operator -(Zbor obj, int NrLocuri)
         {
-            if (obj != null && (obj.nrLocuri - NrLocuri) >= 0)
+            if (obj != null && (obj.nrLocuriDisponibile - NrLocuri) >= 0)
             {
-                obj.nrLocuri -= NrLocuri;
+                obj.nrLocuriDisponibile -= NrLocuri;
                 return obj;
             }
             else
@@ -197,7 +209,7 @@ namespace Proiect_PAW
         public override string ToString()
         {
             return "Decolare: " + TimpDecolare.ToShortTimeString() + ",Aterizare: " + TimpAterizare.ToShortTimeString()
-                + ",Cost: " + cost + ",Locuri: " + nrLocuri;
+                + ",Cost: " + cost + ",Locuri: " + nrLocuriDisponibile;
             //return "Cost: " + cost + ",Locuri: " + nrLocuri;
         }
 
@@ -206,7 +218,7 @@ namespace Proiect_PAW
             var hashCode = 1350721730;
             hashCode = hashCode * -1521134295 + base.GetHashCode();
             hashCode = hashCode * -1521134295 + cost.GetHashCode();
-            hashCode = hashCode * -1521134295 + nrLocuri.GetHashCode();
+            hashCode = hashCode * -1521134295 + nrLocuriDisponibile.GetHashCode();
             hashCode = hashCode * -1521134295 + Cost.GetHashCode();
             hashCode = hashCode * -1521134295 + LocuriDisponibile.GetHashCode();
             return hashCode;

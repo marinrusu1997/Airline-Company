@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Proiect_PAW
 {
-    public partial class ModificaRuta : Form
+    public partial class ModificaRuta : Rute_Forms.RutaBaseForm
     {
         CompanieAeriana companie;
         public ModificaRuta(CompanieAeriana companieAeriana)

@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.MeniuPrincipal = new System.Windows.Forms.MenuStrip();
             this.companieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateDeContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.incarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,13 +50,21 @@
             this.adaugaZboruriRutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stergeRutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaRutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagnosticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rapoarteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStripRute = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.redeseneazăRuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelTitlu = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.MeniuPrincipal.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStripRute.SuspendLayout();
+            this.panelTitlu.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MeniuPrincipal
@@ -68,6 +75,7 @@
             this.rezervariToolStripMenuItem,
             this.discountsToolStripMenuItem,
             this.ruteToolStripMenuItem,
+            this.diagnosticToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.MeniuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MeniuPrincipal.Name = "MeniuPrincipal";
@@ -79,8 +87,6 @@
             // 
             this.companieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateDeContactToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.incarToolStripMenuItem,
             this.toolStripSeparator1,
             this.closeToolStripMenuItem});
             this.companieToolStripMenuItem.Name = "companieToolStripMenuItem";
@@ -94,20 +100,6 @@
             this.dateDeContactToolStripMenuItem.Text = "Date Companie";
             this.dateDeContactToolStripMenuItem.Click += new System.EventHandler(this.dateDeContactToolStripMenuItem_Click);
             // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.saveToolStripMenuItem.Text = "Save Rezervari";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveRezervariToolStripMenuItem_Click);
-            // 
-            // incarToolStripMenuItem
-            // 
-            this.incarToolStripMenuItem.Name = "incarToolStripMenuItem";
-            this.incarToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.incarToolStripMenuItem.Text = "Load Rezervari";
-            this.incarToolStripMenuItem.Click += new System.EventHandler(this.incarToolStripMenuItem_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -116,8 +108,9 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Text = "Exit";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // clientiToolStripMenuItem
@@ -132,14 +125,14 @@
             // adaugaClientToolStripMenuItem
             // 
             this.adaugaClientToolStripMenuItem.Name = "adaugaClientToolStripMenuItem";
-            this.adaugaClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adaugaClientToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.adaugaClientToolStripMenuItem.Text = "Adauga Client";
             this.adaugaClientToolStripMenuItem.Click += new System.EventHandler(this.adaugaClientToolStripMenuItem_Click);
             // 
             // vizualizeazaClientiToolStripMenuItem
             // 
             this.vizualizeazaClientiToolStripMenuItem.Name = "vizualizeazaClientiToolStripMenuItem";
-            this.vizualizeazaClientiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vizualizeazaClientiToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.vizualizeazaClientiToolStripMenuItem.Text = "Gestioneaza Clienti";
             this.vizualizeazaClientiToolStripMenuItem.Click += new System.EventHandler(this.vizualizeazaClientiToolStripMenuItem_Click);
             // 
@@ -155,15 +148,16 @@
             // adaugaRezervareToolStripMenuItem
             // 
             this.adaugaRezervareToolStripMenuItem.Name = "adaugaRezervareToolStripMenuItem";
-            this.adaugaRezervareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adaugaRezervareToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.adaugaRezervareToolStripMenuItem.Text = "Adauga Rezervare";
             this.adaugaRezervareToolStripMenuItem.Click += new System.EventHandler(this.adaugaRezervareToolStripMenuItem_Click);
             // 
             // stergeRezervareToolStripMenuItem
             // 
             this.stergeRezervareToolStripMenuItem.Name = "stergeRezervareToolStripMenuItem";
-            this.stergeRezervareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stergeRezervareToolStripMenuItem.Text = "Sterge Rezervare";
+            this.stergeRezervareToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.stergeRezervareToolStripMenuItem.Text = "Configurare";
+            this.stergeRezervareToolStripMenuItem.Click += new System.EventHandler(this.stergeRezervareToolStripMenuItem_Click);
             // 
             // discountsToolStripMenuItem
             // 
@@ -235,6 +229,29 @@
             this.modificaRutaToolStripMenuItem.Text = "Modifica Ruta";
             this.modificaRutaToolStripMenuItem.Click += new System.EventHandler(this.modificaRutaToolStripMenuItem_Click);
             // 
+            // diagnosticToolStripMenuItem
+            // 
+            this.diagnosticToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.diagrameToolStripMenuItem,
+            this.rapoarteToolStripMenuItem1});
+            this.diagnosticToolStripMenuItem.Name = "diagnosticToolStripMenuItem";
+            this.diagnosticToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.diagnosticToolStripMenuItem.Text = "Diagnostic";
+            // 
+            // diagrameToolStripMenuItem
+            // 
+            this.diagrameToolStripMenuItem.Name = "diagrameToolStripMenuItem";
+            this.diagrameToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.diagrameToolStripMenuItem.Text = "Diagrame";
+            this.diagrameToolStripMenuItem.Click += new System.EventHandler(this.diagrameToolStripMenuItem_Click);
+            // 
+            // rapoarteToolStripMenuItem1
+            // 
+            this.rapoarteToolStripMenuItem1.Name = "rapoarteToolStripMenuItem1";
+            this.rapoarteToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.rapoarteToolStripMenuItem1.Text = "Rapoarte";
+            this.rapoarteToolStripMenuItem1.Click += new System.EventHandler(this.rapoarteToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -248,54 +265,74 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // tabControl1
+            // pictureBox1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 426);
-            this.tabControl1.TabIndex = 3;
+            this.pictureBox1.ContextMenuStrip = this.contextMenuStripRute;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // tabPage1
+            // contextMenuStripRute
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 400);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.contextMenuStripRute.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.redeseneazăRuteToolStripMenuItem});
+            this.contextMenuStripRute.Name = "contextMenuStripRute";
+            this.contextMenuStripRute.Size = new System.Drawing.Size(169, 26);
             // 
-            // tabPage2
+            // redeseneazăRuteToolStripMenuItem
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 400);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.redeseneazăRuteToolStripMenuItem.Name = "redeseneazăRuteToolStripMenuItem";
+            this.redeseneazăRuteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.redeseneazăRuteToolStripMenuItem.Text = "Redesenează Rute";
+            this.redeseneazăRuteToolStripMenuItem.Click += new System.EventHandler(this.redeseneazăRuteToolStripMenuItem_Click);
+            // 
+            // panelTitlu
+            // 
+            this.panelTitlu.AutoScroll = true;
+            this.panelTitlu.BackColor = System.Drawing.Color.SkyBlue;
+            this.panelTitlu.Controls.Add(this.flowLayoutPanel1);
+            this.panelTitlu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTitlu.Location = new System.Drawing.Point(0, 24);
+            this.panelTitlu.Name = "panelTitlu";
+            this.panelTitlu.Size = new System.Drawing.Size(800, 426);
+            this.panelTitlu.TabIndex = 5;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 426);
+            this.flowLayoutPanel1.TabIndex = 3;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.panelTitlu);
             this.Controls.Add(this.MeniuPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
             this.MainMenuStrip = this.MeniuPrincipal;
             this.Name = "MainWindow";
             this.Text = "Air Moldova";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.MeniuPrincipal.ResumeLayout(false);
             this.MeniuPrincipal.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStripRute.ResumeLayout(false);
+            this.panelTitlu.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,8 +351,6 @@
         private System.Windows.Forms.ToolStripMenuItem discountsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valoriDiscountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurareToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem incarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ruteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaRutaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stergeRutaToolStripMenuItem;
@@ -326,9 +361,14 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaRutaNouaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaZboruriRutaToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ToolStripMenuItem diagnosticToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelTitlu;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRute;
+        private System.Windows.Forms.ToolStripMenuItem redeseneazăRuteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diagrameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rapoarteToolStripMenuItem1;
     }
 }
 

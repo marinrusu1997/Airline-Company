@@ -8,15 +8,16 @@ using System.IO;
 using System.Xml;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using QuickGraph.Collections;
 using Newtonsoft.Json;
+using QuickGraph;
+
 
 
 namespace Proiect_PAW
 {
 
     [Serializable]
-    public class CompanieAeriana : ICloneable, IComparable, ISerializable
+    public class CompanieAeriana : ICloneable, IComparable, ISerializable , IEnumerable<KeyValuePair<RutaAeriana,DiscountManager>>
     {
         SortedDictionary<RutaAeriana, SortedDictionary<DateTime, SortedDictionary<Zbor, Hashtable>>> rute;
         Dictionary<RutaAeriana, DiscountManager> discounts;
@@ -78,6 +79,8 @@ namespace Proiect_PAW
                     discounts = value;
             }
         }
+        public AdjacencyGraph<Aeroport, Edge<Aeroport>> GraphRute { get; set; }
+
         public string Nume
         {
             get { return nume; }
@@ -142,22 +145,18 @@ namespace Proiect_PAW
         {
             throw new NotImplementedException();
         }
-
         public object Clone()
         {
             throw new NotImplementedException();
         }
-
         public override bool Equals(object obj)
         {
             throw new NotImplementedException();
         }
-
         public override int GetHashCode()
         {
             throw new NotImplementedException();
         }
-
         public override string ToString()
         {
             return "Compania Aeriana " + nume + ",avind adresa " + adresa + ",telefonul " + telefon + " si email " + email;
@@ -170,7 +169,6 @@ namespace Proiect_PAW
             info.AddValue("telefon", telefon, typeof(string));
             info.AddValue("email", email, typeof(string));
         }
-
         public void Serialize()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -178,11 +176,10 @@ namespace Proiect_PAW
             formatter.Serialize(s, this);
             s.Close();
         }
-
         public static CompanieAeriana Deserialize()
         {
             IFormatter formatter = new BinaryFormatter();
-            FileStream s = new FileStream(NumeFisierSerializare, FileMode.Open);
+            FileStream s = new FileStream(Properties.Settings.Default.SerializationFilesPath + NumeFisierSerializare, FileMode.Open);
             CompanieAeriana companieAeriana = (CompanieAeriana)formatter.Deserialize(s);
             s.Close();
             return companieAeriana;
@@ -192,7 +189,6 @@ namespace Proiect_PAW
         {
             return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day);
         }
-
         public bool AdaugaRezervare(Rezervare rezervare,out float sumaDePlata)
         {
             if (this.rute.TryGetValue(rezervare.RutaAeriana, out var zboruri)) //daca aceasta ruta exista
@@ -208,7 +204,7 @@ namespace Proiect_PAW
                    });
                     if (zborCautat != null) //daca zborul a fost gasit
                     {
-                        if (zborCautat.LocuriDisponibile > 0) //daca sunt locuri disponibile
+                        if (zborCautat.LocuriDisponibile - rezervare.NumarBilete > 0) //daca sunt locuri disponibile
                         {
                             //aplicam discount daca e posibil
                             float sumaPlatita = zborCautat.Cost;
@@ -216,18 +212,17 @@ namespace Proiect_PAW
                             {
                                 sumaPlatita = discountManager.ApplyDiscount(rezervare, zborCautat);
                             }
-                            sumaDePlata = sumaPlatita;
+                            sumaDePlata = sumaPlatita * rezervare.NumarBilete;
                             try
                             {
                                 zbor[zborCautat].Add(rezervare.Rezervant.CNP, rezervare); //adaugam rezervarea
-                            } catch (Exception e)
+                                zborCautat -= rezervare.NumarBilete;
+                            } catch 
                             {
                                 //rezervantul deja se afla in lista
                                 sumaDePlata = -1;
                                 return false;
-                            }
-                                zborCautat.LocuriDisponibile--; //diminuam locurile disponibile
-                                                            
+                            }                                   
                             return true; //succes
                         }
                         else
@@ -258,7 +253,6 @@ namespace Proiect_PAW
                 return false;
             }
         }
-
         public bool AdaugaDiscount(RutaAeriana ruta, IDiscount discount)
         {
             if (ruta == null || discount == null)
@@ -269,7 +263,6 @@ namespace Proiect_PAW
             //this.discounts[ruta].ProcentDiscountMaxim = DiscountMaxim;
             return true;
         }
-
         public void AdaugaDiscount(RutaAeriana ruta, IList<IDiscount> discounturi)
         {
             if (ruta == null || discounturi == null)
@@ -282,15 +275,13 @@ namespace Proiect_PAW
             else
                 this.discounts.Add(ruta, new DiscountManager(DiscountMaxim, discounturi));
         }
-
-
         public bool StergeRezervare(Rezervare rezervare)
         {
-            if (rute.TryGetValue(rezervare.RutaAeriana, out var zboruri))
+            if (rute.TryGetValue(rezervare.RutaAeriana, out var dateDecolare))
             {
-                if (zboruri.TryGetValue(ExtractDate(rezervare.Zbor.TimpDecolare), out var zbor))
+                if (dateDecolare.TryGetValue(ExtractDate(rezervare.Zbor.TimpDecolare), out var zboruri))
                 {
-                    var zborCautat = zbor.Keys.ToList().Find(zborInput =>
+                    var zborCautat = zboruri.Keys.ToList().Find(zborInput =>
                     {
                         if (((ZborBasic)zborInput).Equals(rezervare.Zbor))
                             return true;
@@ -299,7 +290,8 @@ namespace Proiect_PAW
                     });
                     if (zborCautat != null)
                     {
-                        zbor[zborCautat].Remove(rezervare);
+                        zboruri[zborCautat].Remove(rezervare.Rezervant.CNP);
+                        zborCautat.LocuriDisponibile += rezervare.NumarBilete;
                         return true;
                     }
                     else
@@ -311,7 +303,6 @@ namespace Proiect_PAW
             else
                 return false;
         }
-
         public bool StergeDiscount(RutaAeriana ruta, IDiscount discount)
         {
             try
@@ -323,7 +314,6 @@ namespace Proiect_PAW
                 return false;
             }
         }
-
         public bool StergeDiscounturi(RutaAeriana ruta)
         {
             try
@@ -335,7 +325,6 @@ namespace Proiect_PAW
                 return false;
             }
         }
-
         public bool AdaugaZboruri(RutaAeriana ruta, IList<Zbor> zboruri)
         {
             if (ruta == null || zboruri == null)
@@ -368,7 +357,6 @@ namespace Proiect_PAW
             else
                 return false;
         }
-
         public bool AdaugaZbor(RutaAeriana rutaAeriana, Zbor zbor, Hashtable rezervari)
         {
             if (rutaAeriana == null || zbor == null || rezervari == null)
@@ -419,7 +407,6 @@ namespace Proiect_PAW
             else
                 return false;
         }
-
         public bool StergeRuta(RutaAeriana ruta)
         {
             if (ruta == null)
@@ -432,6 +419,7 @@ namespace Proiect_PAW
             else
                 return false;
         }
+
         public void SalveazaRuteXML()
         {
             MemoryStream memstream = new MemoryStream();
@@ -470,7 +458,8 @@ namespace Proiect_PAW
                         //inceput zbor
                         xmlwriter.WriteStartElement("Zbor");
                         xmlwriter.WriteAttributeString("dataPlecare", zbor.Key.TimpDecolare.ToString());
-                        xmlwriter.WriteAttributeString("nrLocuri", zbor.Key.LocuriDisponibile.ToString());
+                        xmlwriter.WriteAttributeString("nrLocuriDisponibile", zbor.Key.LocuriDisponibile.ToString());
+                        xmlwriter.WriteAttributeString("nrLocuriTotal", zbor.Key.NumarLocuri.ToString());
                         xmlwriter.WriteAttributeString("cost", zbor.Key.Cost.ToString());
                         xmlwriter.WriteAttributeString("dataSosire", zbor.Key.TimpAterizare.ToString());
 
@@ -502,7 +491,7 @@ namespace Proiect_PAW
             string xml = Encoding.UTF8.GetString(memstream.ToArray());
             memstream.Close();
 
-            StreamWriter streamwriter = new StreamWriter("rute.xml");
+            StreamWriter streamwriter = new StreamWriter(@Properties.Settings.Default.SerializationFilesPath + "RuteAeriene.xml");
             streamwriter.WriteLine(xml);
             streamwriter.Close();
         }
@@ -514,11 +503,12 @@ namespace Proiect_PAW
                     System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
+            
 
             XmlDocument document = new XmlDocument();
             try
             {
-                document.Load(@"rute.xml");
+                document.Load(@Properties.Settings.Default.SerializationFilesPath + "RuteAeriene.xml");
             }
             catch (FileNotFoundException)
             {
@@ -562,12 +552,14 @@ namespace Proiect_PAW
                             , DateTime.ParseExact(zborNode.Attributes["dataSosire"]?.InnerText,
                             "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)
                             , float.Parse(zborNode.Attributes["cost"]?.InnerText),
-                            int.Parse(zborNode.Attributes["nrLocuri"]?.InnerText));
+                            int.Parse(zborNode.Attributes["nrLocuriDisponibile"]?.InnerText));
+                        zbor.NumarLocuri = int.Parse(zborNode.Attributes["nrLocuriTotal"]?.InnerText);
                         foreach (XmlNode rezervareNode in zborNode.ChildNodes)
                         {
                             var rezervare = new Rezervare(
                                             ruta, zbor, int.Parse(rezervareNode.Attributes["nrBilete"]?.InnerText),
-                                            new Persoana(rezervareNode.Attributes["persoana"]?.InnerText));
+                                            //new Persoana(rezervareNode.Attributes["persoana"]?.InnerText));
+                                            DBRepositoriesManager.AirCompanyDBGetPersoana(rezervareNode.Attributes["persoana"]?.InnerText));
                             TabelaRezervari.Add(rezervare.Rezervant.CNP, rezervare);
                         }
                         DicZboruri.Add(zbor, TabelaRezervari);
@@ -580,10 +572,9 @@ namespace Proiect_PAW
 
             DBRepositoriesManager.CloseAirCompanyDB();
         }
-
         public void SerializeazaDiscounturi()
         {
-            File.WriteAllText("discounturi.txt",
+            File.WriteAllText(@Properties.Settings.Default.SerializationFilesPath +  "Discounturi.txt",
                 JsonConvert.SerializeObject(
                                    discounts.Keys.AsEnumerable().
                                    Select(key => new DiscountEntry(key, discounts[key]))
@@ -601,7 +592,7 @@ namespace Proiect_PAW
             {
                 var dictionaryEntries = JsonConvert.
                     DeserializeObject<List<DiscountEntry>>(
-                    File.ReadAllText("discounturi.txt"),
+                    File.ReadAllText(@Properties.Settings.Default.SerializationFilesPath + "Discounturi.txt"),
                     new JsonSerializerSettings
                     {
                         TypeNameHandling = TypeNameHandling.Auto
@@ -617,6 +608,15 @@ namespace Proiect_PAW
                 return;
             }
 
+        }
+
+        public IEnumerator<KeyValuePair<RutaAeriana, DiscountManager>> GetEnumerator()
+        {
+            return discounts.GetEnumerator();
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

@@ -8,22 +8,75 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Proiect_PAW.Properties
-{
-
-
+namespace Proiect_PAW.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\dimar\\source\\repos\\Proiect_PAW\\Proiect_PAW\\Resources\\Data Files\\")]
+        public string DataFilesPath {
+            get {
+                return ((string)(this["DataFilesPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\dimar\\source\\repos\\Proiect_PAW\\Proiect_PAW\\Resources\\Serialization Files" +
+            "\\")]
+        public string SerializationFilesPath {
+            get {
+                return ((string)(this["SerializationFilesPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server = .\\SQLEXPRESS; Database = AirCompanyDB; Integrated Security = true")]
+        public string AirCompanyDb {
+            get {
+                return ((string)(this["AirCompanyDb"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-QHCIP06K\\SQLEXPRESS;Initial Catalog=AirCompanyDB;Integrated Se" +
+            "curity=True")]
+        public string AirCompanyDBConnectionString {
+            get {
+                return ((string)(this["AirCompanyDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\dimar\\source\\repos\\Proiect_PAW\\Proiect_PAW\\Reports\\")]
+        public string ReportsPath {
+            get {
+                return ((string)(this["ReportsPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\dimar\\source\\repos\\Proiect_PAW\\Proiect_PAW\\Rezervari\\")]
+        public string RezervariPath {
+            get {
+                return ((string)(this["RezervariPath"]));
             }
         }
     }

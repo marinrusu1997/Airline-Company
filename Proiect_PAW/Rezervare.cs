@@ -105,7 +105,19 @@ namespace Proiect_PAW
 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+                return 1;
+            Persoana persoana = obj as Persoana;
+            if (persoana != null)
+            {
+                var compData = DataNastere.CompareTo(persoana.DataNastere);
+                if (compData == 0)
+                    return CNP.CompareTo(persoana.CNP);
+                else
+                    return compData;
+            }
+            else
+                throw new ArgumentException("Object is not a " + this.GetType());
         }
 
         public object Clone()
@@ -115,18 +127,43 @@ namespace Proiect_PAW
 
         public override string ToString()
         {
-            return Nume + " " + Prenume + " " + Email + " " + Cetatenie + " " + DataNastere.ToShortDateString() +
-                " " + NumarPasaport + " " + CNP + " " + Sex + " " + Telefon;
+            return Nume + " " + Prenume + "(" + CNP + ")";
         }
 
         public override bool Equals(object obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+                return false;
+            if (this.GetType() != obj.GetType())
+                return false;
+            if (ReferenceEquals(this, obj))
+                return true;
+            if (this.GetHashCode() != obj.GetHashCode())
+                return false;
+            Persoana persoana = obj as Persoana;
+            return Nume.Equals(persoana.Nume) && Prenume.Equals(persoana.Prenume) &&
+                Email.Equals(persoana.Email) && Cetatenie.Equals(persoana.Cetatenie) &&
+                DataNastere.Equals(persoana.DataNastere) && NumarPasaport.Equals(persoana.NumarPasaport)
+                && Telefon.Equals(persoana.Telefon) && CNP.Equals(persoana.CNP) &&
+                Sex.Equals(persoana.Sex);
         }
 
         public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            var hashCode = -1350515998;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(email);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(sex);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nume);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Prenume);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cetatenie);
+            hashCode = hashCode * -1521134295 + DataNastere.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(NumarPasaport);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefon);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CNP);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Sex);
+            hashCode = hashCode * -1521134295 + EsteClient.GetHashCode();
+            return hashCode;
         }
     }
 
@@ -153,7 +190,28 @@ namespace Proiect_PAW
 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+                return 1;
+            Rezervare rezervare = obj as Rezervare;
+            if (rezervare != null)
+            {
+                if (numarBilete == rezervare.numarBilete)
+                    if (Rezervant.CompareTo(rezervare.Rezervant) == 0)
+                        if (RutaAeriana.CompareTo(rezervare.RutaAeriana) == 0)
+                            if (Zbor.CompareTo(rezervare.Zbor) == 0)
+                                return 0;
+                            else
+                                return Zbor.CompareTo(rezervare.Zbor);
+                        else
+                            return RutaAeriana.CompareTo(rezervare.RutaAeriana);
+                    else
+                        return Rezervant.CompareTo(rezervare.Rezervant);
+                else
+                    return numarBilete.CompareTo(rezervare.numarBilete);
+            }   
+            else
+                throw new ArgumentException("Object is not a " + this.GetType());
+            
         }
 
         public object Clone()
@@ -167,31 +225,35 @@ namespace Proiect_PAW
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return Rezervant.Nume + " " + Rezervant.Prenume + " " + NumarBilete + " bilete";
         }
+
 
         public override bool Equals(object obj)
         {
-            //if (obj == null)
-            //    return false;
-            //if (this.GetType() != obj.GetType())
-            //    return false;
-            //if (ReferenceEquals(this, obj))
-            //    return true;
-            //if (this.GetHashCode() != obj.GetHashCode())
-            //    return false;
-            ////System.Diagnostics.Debug.Assert(base.GetType() != typeof(object)); // check base.Equals() if base overides Equals()
-            //// if (!base.Equals(obj))
-            ////  return false;
-            //Rezervare rezervare = obj as Rezervare;
-            ////verificam egalitatea dupa id
-            //return this.IdRezervare == rezervare.IdRezervare;
-            throw new NotImplementedException();
+            if (obj == null)
+                return false;
+            if (this.GetType() != obj.GetType())
+                return false;
+            if (ReferenceEquals(this, obj))
+                return true;
+            if (this.GetHashCode() != obj.GetHashCode())
+                return false;
+            Rezervare rezervare = obj as Rezervare;
+            //verificam egalitatea dupa id
+            return this.numarBilete == rezervare.numarBilete && this.RutaAeriana.Equals(rezervare.RutaAeriana) &&
+                this.Zbor.Equals(rezervare.Zbor) && this.Rezervant.Equals(rezervare.Rezervant);
         }
 
         public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            var hashCode = 1246232170;
+            hashCode = hashCode * -1521134295 + numarBilete.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<RutaAeriana>.Default.GetHashCode(RutaAeriana);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ZborBasic>.Default.GetHashCode(Zbor);
+            hashCode = hashCode * -1521134295 + NumarBilete.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Persoana>.Default.GetHashCode(Rezervant);
+            return hashCode;
         }
     }
 }

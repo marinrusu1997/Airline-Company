@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurareDiscounts));
             this.tvDiscounts = new System.Windows.Forms.TreeView();
             this.cMStvDiscounts = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +41,7 @@
             // tvDiscounts
             // 
             this.tvDiscounts.AllowDrop = true;
+            this.tvDiscounts.BackColor = System.Drawing.Color.Azure;
             this.tvDiscounts.ContextMenuStrip = this.cMStvDiscounts;
             this.tvDiscounts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDiscounts.Location = new System.Drawing.Point(0, 0);
@@ -86,6 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tvDiscounts);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfigurareDiscounts";
             this.Text = "ConfigurareDiscounts";
             this.cMStvDiscounts.ResumeLayout(false);

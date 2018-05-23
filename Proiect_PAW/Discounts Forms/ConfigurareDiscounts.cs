@@ -169,6 +169,7 @@ namespace Proiect_PAW
                 if (adaugaDiscounts.Discount != null)
                 {
                     companie.AdaugaDiscount(adaugaDiscounts.Ruta, adaugaDiscounts.Discount);
+                    tvDiscounts.Nodes.Clear();
                     InitDiscountTree();
                 }
             }

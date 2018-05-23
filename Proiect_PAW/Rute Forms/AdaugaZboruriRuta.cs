@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proiect_PAW
 {
-    public partial class AdaugaZboruriRuta : Form
+    public partial class AdaugaZboruriRuta : Rute_Forms.RutaBaseForm
     {
         CompanieAeriana companie;
         int counterAfisareZboruri = 0;

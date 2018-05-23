@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Configuration;
 
 namespace Proiect_PAW
 {
@@ -39,7 +40,7 @@ namespace Proiect_PAW
         {
             if (Aeroport.aeroporturi == null)
                Aeroport.aeroporturi = new SortedDictionary<string, SortedDictionary<string, IList<Aeroport>>>();
-            string[] aeroporturi = File.ReadAllLines("Airports.txt");
+            string[] aeroporturi = File.ReadAllLines(Properties.Settings.Default.DataFilesPath + "Airports.txt");
             foreach (var aeroport in aeroporturi)
             {
                 string[] atribute = aeroport.Split(',');

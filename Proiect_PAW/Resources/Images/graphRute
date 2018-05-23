@@ -1,0 +1,9 @@
+digraph G {
+0 [fontname="Times New Roman",  fontsize=8, shape=ellipse, style=bold, label="Chişinău International Airport", fillcolor="#FFFFFFFF"];
+1 [fontname="Times New Roman",  fontsize=8, shape=ellipse, style=bold, label="Domodedovo International Airport", fillcolor="#FFFFFFFF"];
+2 [fontname="Times New Roman",  fontsize=8, shape=ellipse, style=bold, label="Henri Coandă International Airport", fillcolor="#FFFFFFFF"];
+3 [fontname="Times New Roman",  fontsize=8, shape=ellipse, style=bold, label="Kiev Zhuliany International Airport", fillcolor="#FFFFFFFF"];
+0 -> 1 [];
+0 -> 2 [];
+0 -> 3 [];
+}

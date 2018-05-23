@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdaugaClient));
             this.btnAdauga = new System.Windows.Forms.Button();
             this.clientUserControl1 = new Proiect_PAW.ClientUserControl();
@@ -51,6 +52,7 @@
             this.clientUserControl1.BackColor = System.Drawing.Color.Transparent;
             this.clientUserControl1.Location = new System.Drawing.Point(24, 12);
             this.clientUserControl1.Name = "clientUserControl1";
+            this.clientUserControl1.Persoana = null;
             this.clientUserControl1.Size = new System.Drawing.Size(505, 260);
             this.clientUserControl1.TabIndex = 0;
             // 

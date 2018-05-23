@@ -1,0 +1,160 @@
+[
+  {
+    "Key": {
+      "AeroportDecolare": {
+        "Nume": "Balti International Airport",
+        "Oras": "Balti",
+        "Tara": "Moldova",
+        "IATA": "BZY",
+        "ICAO": "LUBL"
+      },
+      "AeroportAterizare": {
+        "Nume": "Balti International Airport",
+        "Oras": "Balti",
+        "Tara": "Moldova",
+        "IATA": "BZY",
+        "ICAO": "LUBL"
+      }
+    },
+    "Value": {
+      "ProcentDiscountMaxim": 0.2,
+      "Discounts": [
+        {
+          "$type": "Proiect_PAW.DiscountNrBilete, Proiect_PAW",
+          "ProcentDiscount": 0.9
+        },
+        {
+          "$type": "Proiect_PAW.DiscountNrBilete, Proiect_PAW",
+          "ProcentDiscount": 0.67
+        },
+        {
+          "$type": "Proiect_PAW.DiscountManager, Proiect_PAW",
+          "ProcentDiscountMaxim": 0.33,
+          "Discounts": [
+            {
+              "$type": "Proiect_PAW.DiscountSpecific, Proiect_PAW",
+              "SumaAditionala": 0.0,
+              "MotivulDiscountului": 1,
+              "DataInceput": "2018-05-01T00:00:00",
+              "DataSfirsit": "2018-05-11T00:00:00",
+              "Durata": "10.00:00:00",
+              "ProcentDiscount": 0.5
+            },
+            {
+              "$type": "Proiect_PAW.DiscountNrBilete, Proiect_PAW",
+              "ProcentDiscount": 0.76
+            }
+          ]
+        },
+        {
+          "$type": "Proiect_PAW.DiscountSpecific, Proiect_PAW",
+          "SumaAditionala": 0.0,
+          "MotivulDiscountului": 3,
+          "DataInceput": "2018-07-01T00:00:00",
+          "DataSfirsit": "2018-07-16T00:00:00",
+          "Durata": "15.00:00:00",
+          "ProcentDiscount": 0.13
+        }
+      ]
+    }
+  },
+  {
+    "Key": {
+      "AeroportDecolare": {
+        "Nume": "Chişinău International Airport",
+        "Oras": "Chisinau",
+        "Tara": "Moldova",
+        "IATA": "KIV",
+        "ICAO": "LUKK"
+      },
+      "AeroportAterizare": {
+        "Nume": "Domodedovo International Airport",
+        "Oras": "Moscow",
+        "Tara": "Russia",
+        "IATA": "DME",
+        "ICAO": "UUDD"
+      }
+    },
+    "Value": {
+      "ProcentDiscountMaxim": 0.15,
+      "Discounts": [
+        {
+          "$type": "Proiect_PAW.DiscountNrBilete, Proiect_PAW",
+          "ProcentDiscount": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "Key": {
+      "AeroportDecolare": {
+        "Nume": "Chişinău International Airport",
+        "Oras": "Chisinau",
+        "Tara": "Moldova",
+        "IATA": "KIV",
+        "ICAO": "LUKK"
+      },
+      "AeroportAterizare": {
+        "Nume": "Henri Coandă International Airport",
+        "Oras": "Bucharest",
+        "Tara": "Romania",
+        "IATA": "OTP",
+        "ICAO": "LROP"
+      }
+    },
+    "Value": {
+      "ProcentDiscountMaxim": 0.2,
+      "Discounts": [
+        {
+          "$type": "Proiect_PAW.DiscountNrBilete, Proiect_PAW",
+          "ProcentDiscount": 0.01
+        },
+        {
+          "$type": "Proiect_PAW.DiscountSpecific, Proiect_PAW",
+          "SumaAditionala": 0.0,
+          "MotivulDiscountului": 3,
+          "DataInceput": "2018-06-01T00:00:00",
+          "DataSfirsit": "2018-06-15T00:00:00",
+          "Durata": "14.00:00:00",
+          "ProcentDiscount": 0.25
+        }
+      ]
+    }
+  },
+  {
+    "Key": {
+      "AeroportDecolare": {
+        "Nume": "Chişinău International Airport",
+        "Oras": "Chisinau",
+        "Tara": "Moldova",
+        "IATA": "KIV",
+        "ICAO": "LUKK"
+      },
+      "AeroportAterizare": {
+        "Nume": "Kiev Zhuliany International Airport",
+        "Oras": "Kiev",
+        "Tara": "Ukraine",
+        "IATA": "IEV",
+        "ICAO": "UKKK"
+      }
+    },
+    "Value": {
+      "ProcentDiscountMaxim": 0.15,
+      "Discounts": [
+        {
+          "$type": "Proiect_PAW.DiscountNrBilete, Proiect_PAW",
+          "ProcentDiscount": 0.01
+        },
+        {
+          "$type": "Proiect_PAW.DiscountSpecific, Proiect_PAW",
+          "SumaAditionala": 0.0,
+          "MotivulDiscountului": 3,
+          "DataInceput": "2018-06-01T00:00:00",
+          "DataSfirsit": "2018-06-15T00:00:00",
+          "Durata": "14.00:00:00",
+          "ProcentDiscount": 0.25
+        }
+      ]
+    }
+  }
+]

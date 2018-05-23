@@ -54,6 +54,35 @@ namespace Proiect_PAW.Rezervari_Forms
             InitializeComponent();
         }
 
+        public void SetRezervare(Rezervare rezervare)
+        {
+            if(rezervare != null)
+            {
+                cbRutaAeriana.Items.Add(rezervare.RutaAeriana);
+                try { cbRutaAeriana.SelectedIndex = 0; } catch { }
+                cbData.Items.Add(rezervare.Zbor.TimpDecolare);
+                try { cbData.SelectedIndex = 0; } catch { }
+                cbZbor.Items.Add(rezervare.Zbor);
+                try { cbZbor.SelectedIndex = 0; } catch { }
+                numericBilete.Value = rezervare.NumarBilete;
+
+                cbRutaAeriana.Enabled = false;
+                cbData.Enabled = false;
+                
+            }
+        }
+
+        public void ClearFields()
+        {
+            cbRutaAeriana.DataSource = null;
+            cbRutaAeriana.SelectedItem = null;
+            cbData.DataSource = null;
+            cbData.SelectedItem = null;
+            cbZbor.DataSource = null;
+            cbZbor.SelectedItem = null;
+            numericBilete.Value = 1;
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

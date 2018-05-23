@@ -25,11 +25,6 @@ namespace Proiect_PAW
             }
         }
 
-        private static string DBConnString
-        {
-            get { return "Server = .\\SQLEXPRESS; Database = AirCompanyDB; Integrated Security = true"; }
-        }
-
         private static SqlConnection DBConnection = null;
         private static SqlCommand DBCommand = new SqlCommand();
         private static FileInfo SQLExeptionsFile = new FileInfo("DBExceptions.txt");
@@ -37,7 +32,7 @@ namespace Proiect_PAW
         public static bool OpenAirCompanyDB()
         {
             if (DBConnection == null)
-                DBConnection = new SqlConnection(DBConnString);
+                DBConnection = new SqlConnection(@Properties.Settings.Default.AirCompanyDb);
             if (DBConnection.State != System.Data.ConnectionState.Open)
             {
                 try
@@ -253,10 +248,15 @@ namespace Proiect_PAW
                     File.AppendAllText(SQLExeptionsFile.FullName,
                         Environment.NewLine + DateTime.Now.ToString() + Environment.NewLine + ex.Message,
                         Encoding.Unicode);
-                    return null;
+                    throw ex;
                 }
             }
-            return null;
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Eroare la citirea persoanei din baza de date",
+                    "Baza de date nu a fost deschisa", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                throw new Exception("Baza de date nu a fost deschisa");
+            }
         }
     }
 }

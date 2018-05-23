@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuteAeriene>
+  <RutaAeriana taraDec="Moldova" orasDec="Chisinau" numeAeropDec="Chişinău International Airport" codIATAAeropDec="KIV" codICAOAeropDec="LUKK" taraAter="Russia" orasAter="Moscow" numeAeropAter="Domodedovo International Airport" codIATAAeropAter="DME" codICAOAeropAter="UUDD">
+    <DataPlecare data="01/05/2018">
+      <Zbor dataPlecare="01/05/2018 00:54:52" nrLocuriDisponibile="10" nrLocuriTotal="10" cost="10" dataSosire="01/05/2018 00:55:52" />
+    </DataPlecare>
+    <DataPlecare data="02/05/2018">
+      <Zbor dataPlecare="02/05/2018 10:47:46" nrLocuriDisponibile="10" nrLocuriTotal="10" cost="10" dataSosire="02/05/2018 12:47:46" />
+    </DataPlecare>
+    <DataPlecare data="05/05/2018" />
+    <DataPlecare data="06/05/2018">
+      <Zbor dataPlecare="06/05/2018 00:54:52" nrLocuriDisponibile="10" nrLocuriTotal="10" cost="10" dataSosire="06/05/2018 00:55:52" />
+    </DataPlecare>
+    <DataPlecare data="07/05/2018" />
+    <DataPlecare data="09/05/2018">
+      <Zbor dataPlecare="09/05/2018 18:43:52" nrLocuriDisponibile="156" nrLocuriTotal="156" cost="69" dataSosire="09/05/2018 20:00:00" />
+    </DataPlecare>
+    <DataPlecare data="15/05/2018">
+      <Zbor dataPlecare="15/05/2018 18:47:49" nrLocuriDisponibile="157" nrLocuriTotal="157" cost="89" dataSosire="15/05/2018 21:00:00">
+        <Rezervare nrBilete="1" persoana="1236497164647" />
+        <Rezervare nrBilete="1" persoana="1234567891234" />
+        <Rezervare nrBilete="2" persoana="2005037063905" />
+        <Rezervare nrBilete="4" persoana="2345678912345" />
+      </Zbor>
+    </DataPlecare>
+    <DataPlecare data="16/05/2018">
+      <Zbor dataPlecare="16/05/2018 18:47:49" nrLocuriDisponibile="166" nrLocuriTotal="166" cost="89" dataSosire="16/05/2018 21:00:00" />
+    </DataPlecare>
+    <DataPlecare data="31/05/2018">
+      <Zbor dataPlecare="31/05/2018 11:30:00" nrLocuriDisponibile="145" nrLocuriTotal="145" cost="130" dataSosire="31/05/2018 14:00:00">
+        <Rezervare nrBilete="1" persoana="1649746194656" />
+        <Rezervare nrBilete="1" persoana="6546854854163" />
+        <Rezervare nrBilete="1" persoana="3546548694769" />
+        <Rezervare nrBilete="1" persoana="6587486478697" />
+        <Rezervare nrBilete="1" persoana="3616496479469" />
+      </Zbor>
+    </DataPlecare>
+  </RutaAeriana>
+  <RutaAeriana taraDec="Moldova" orasDec="Chisinau" numeAeropDec="Chişinău International Airport" codIATAAeropDec="KIV" codICAOAeropDec="LUKK" taraAter="Romania" orasAter="Bucharest" numeAeropAter="Henri Coandă International Airport" codIATAAeropAter="OTP" codICAOAeropAter="LROP">
+    <DataPlecare data="30/04/2018">
+      <Zbor dataPlecare="30/04/2018 11:00:00" nrLocuriDisponibile="110" nrLocuriTotal="110" cost="55" dataSosire="30/04/2018 12:30:00" />
+      <Zbor dataPlecare="30/04/2018 15:00:00" nrLocuriDisponibile="120" nrLocuriTotal="120" cost="60" dataSosire="30/04/2018 16:30:00" />
+    </DataPlecare>
+    <DataPlecare data="01/05/2018">
+      <Zbor dataPlecare="01/05/2018 15:00:00" nrLocuriDisponibile="120" nrLocuriTotal="120" cost="60" dataSosire="01/05/2018 16:30:00" />
+    </DataPlecare>
+    <DataPlecare data="02/05/2018">
+      <Zbor dataPlecare="02/05/2018 19:00:00" nrLocuriDisponibile="120" nrLocuriTotal="120" cost="60" dataSosire="02/05/2018 20:30:00" />
+    </DataPlecare>
+  </RutaAeriana>
+  <RutaAeriana taraDec="Moldova" orasDec="Chisinau" numeAeropDec="Chişinău International Airport" codIATAAeropDec="KIV" codICAOAeropDec="LUKK" taraAter="Ukraine" orasAter="Kiev" numeAeropAter="Kiev Zhuliany International Airport" codIATAAeropAter="IEV" codICAOAeropAter="UKKK">
+    <DataPlecare data="01/05/2018" />
+    <DataPlecare data="02/05/2018">
+      <Zbor dataPlecare="02/05/2018 06:00:00" nrLocuriDisponibile="70" nrLocuriTotal="70" cost="66.7" dataSosire="02/05/2018 07:23:00" />
+    </DataPlecare>
+  </RutaAeriana>
+</RuteAeriene>

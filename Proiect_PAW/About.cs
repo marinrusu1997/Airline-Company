@@ -14,12 +14,12 @@ namespace Proiect_PAW
         public About()
         {
             InitializeComponent();
-            this.Text = String.Format("About {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
+            this.Text = String.Format("About {0}", "Air Moldova");
+            this.labelProductName.Text = "Gestiunea Companiei Aeriene";
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            this.labelCopyright.Text = "Copyright             ©Marin Rusu ";
+            this.labelCompanyName.Text = "Companie Aeriana          Air Moldova";
+            this.textBoxDescription.Text = "Description " + Environment.NewLine + "Întreprinderea de Stat Compania Aeriană Air Moldova este transportatorul național al Republicii Moldova, fiind lider pe piața autohtonă a transporturilor aeriene. Aceasta a fost fondată prin decret prezidențial la 12 ianuarie 1993.Are hub - ul pe Aeroportul Internațional Chișinău și operează 29 destinații cu 7 aeronave.Pe lângă pasageri compania aerienă Air Moldova transportă cargo și poștă.Air Moldova este membru IATA și ICAO.";
         }
 
         #region Assembly Attribute Accessors
@@ -101,5 +101,10 @@ namespace Proiect_PAW
             }
         }
         #endregion
+
+        private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

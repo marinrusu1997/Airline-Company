@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetClienti" targetNamespace="http://tempuri.org/DataSetClienti.xsd" xmlns:mstns="http://tempuri.org/DataSetClienti.xsd" xmlns="http://tempuri.org/DataSetClienti.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AirCompanyDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AirCompanyDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Proiect_PAW.Properties.Settings.GlobalReference.Default.AirCompanyDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableClientiTableAdapter" GeneratorDataComponentClassName="DataTableClientiTableAdapter" Name="DataTableClienti" UserDataComponentName="DataTableClientiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AirCompanyDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CLIENTI.NUME, CLIENTI.PRENUME, CLIENTI.EMAIL, CLIENTI.CETATENIE, CLIENTI.NUMAR_PASAPORT, CLIENTI.DATA_NASTERE, CLIENTI.TELEFON, CLIENTI.CNP, CLIENTI.SEX, Total.total AS TOTAL
+FROM            CLIENTI CROSS JOIN
+                             (SELECT        COUNT(*) AS total
+                               FROM            CLIENTI AS CLIENTI_1) AS Total</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NUME" DataSetColumn="NUME" />
+              <Mapping SourceColumn="PRENUME" DataSetColumn="PRENUME" />
+              <Mapping SourceColumn="EMAIL" DataSetColumn="EMAIL" />
+              <Mapping SourceColumn="CETATENIE" DataSetColumn="CETATENIE" />
+              <Mapping SourceColumn="NUMAR_PASAPORT" DataSetColumn="NUMAR_PASAPORT" />
+              <Mapping SourceColumn="DATA_NASTERE" DataSetColumn="DATA_NASTERE" />
+              <Mapping SourceColumn="TELEFON" DataSetColumn="TELEFON" />
+              <Mapping SourceColumn="CNP" DataSetColumn="CNP" />
+              <Mapping SourceColumn="SEX" DataSetColumn="SEX" />
+              <Mapping SourceColumn="TOTAL" DataSetColumn="TOTAL" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetClienti" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetClienti" msprop:Generator_UserDSName="DataSetClienti">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableClienti" msprop:Generator_TableClassName="DataTableClientiDataTable" msprop:Generator_TableVarName="tableDataTableClienti" msprop:Generator_TablePropName="DataTableClienti" msprop:Generator_RowDeletingName="DataTableClientiRowDeleting" msprop:Generator_RowChangingName="DataTableClientiRowChanging" msprop:Generator_RowEvHandlerName="DataTableClientiRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableClientiRowDeleted" msprop:Generator_UserTableName="DataTableClienti" msprop:Generator_RowChangedName="DataTableClientiRowChanged" msprop:Generator_RowEvArgName="DataTableClientiRowChangeEvent" msprop:Generator_RowClassName="DataTableClientiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NUME" msprop:Generator_ColumnVarNameInTable="columnNUME" msprop:Generator_ColumnPropNameInRow="NUME" msprop:Generator_ColumnPropNameInTable="NUMEColumn" msprop:Generator_UserColumnName="NUME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRENUME" msprop:Generator_ColumnVarNameInTable="columnPRENUME" msprop:Generator_ColumnPropNameInRow="PRENUME" msprop:Generator_ColumnPropNameInTable="PRENUMEColumn" msprop:Generator_UserColumnName="PRENUME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMAIL" msprop:Generator_ColumnVarNameInTable="columnEMAIL" msprop:Generator_ColumnPropNameInRow="EMAIL" msprop:Generator_ColumnPropNameInTable="EMAILColumn" msprop:Generator_UserColumnName="EMAIL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CETATENIE" msprop:Generator_ColumnVarNameInTable="columnCETATENIE" msprop:Generator_ColumnPropNameInRow="CETATENIE" msprop:Generator_ColumnPropNameInTable="CETATENIEColumn" msprop:Generator_UserColumnName="CETATENIE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NUMAR_PASAPORT" msprop:Generator_ColumnVarNameInTable="columnNUMAR_PASAPORT" msprop:Generator_ColumnPropNameInRow="NUMAR_PASAPORT" msprop:Generator_ColumnPropNameInTable="NUMAR_PASAPORTColumn" msprop:Generator_UserColumnName="NUMAR_PASAPORT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATA_NASTERE" msprop:Generator_ColumnVarNameInTable="columnDATA_NASTERE" msprop:Generator_ColumnPropNameInRow="DATA_NASTERE" msprop:Generator_ColumnPropNameInTable="DATA_NASTEREColumn" msprop:Generator_UserColumnName="DATA_NASTERE" type="xs:dateTime" />
+              <xs:element name="TELEFON" msprop:Generator_ColumnVarNameInTable="columnTELEFON" msprop:Generator_ColumnPropNameInRow="TELEFON" msprop:Generator_ColumnPropNameInTable="TELEFONColumn" msprop:Generator_UserColumnName="TELEFON" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SEX" msprop:Generator_ColumnVarNameInTable="columnSEX" msprop:Generator_ColumnPropNameInRow="SEX" msprop:Generator_ColumnPropNameInTable="SEXColumn" msprop:Generator_UserColumnName="SEX">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TOTAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

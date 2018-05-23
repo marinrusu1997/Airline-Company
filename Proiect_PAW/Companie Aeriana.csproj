@@ -26,6 +26,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,8 +48,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\Crystal.Reports.Essentials.13.0.20.2399\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\Crystal.Reports.Essentials.13.0.20.2399\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\Crystal.Reports.Essentials.13.0.20.2399\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\Crystal.Reports.Essentials.13.0.20.2399\lib\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Graphviz, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Graphviz.2.38.0.2\lib\Graphviz.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -67,6 +98,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +109,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinWordControl">
+      <HintPath>..\..\..\..\Desktop\WinWordControl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.cs">
@@ -83,6 +119,18 @@
     </Compile>
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart Forms\ChartsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart Forms\ChartsManager.Designer.cs">
+      <DependentUpon>ChartsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart Forms\ZboruriChartConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart Forms\ZboruriChartConfig.Designer.cs">
+      <DependentUpon>ZboruriChartConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Client Forms\AdaugaClient.cs">
       <SubType>Form</SubType>
@@ -96,6 +144,11 @@
     <Compile Include="Client Forms\ModificaClient.Designer.cs">
       <DependentUpon>ModificaClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data Sets\DataSetClienti.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetClienti.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Discounts Forms\SeteazaDiscounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +156,25 @@
       <DependentUpon>SeteazaDiscounts.cs</DependentUpon>
     </Compile>
     <Compile Include="ListViewColumnSorter.cs" />
+    <Compile Include="ReportForms\ClientiReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForms\ClientiReports.Designer.cs">
+      <DependentUpon>ClientiReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForms\IReport.cs" />
+    <Compile Include="ReportForms\ReportManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForms\ReportManager.Designer.cs">
+      <DependentUpon>ReportManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForms\RezervariReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForms\RezervariReports.Designer.cs">
+      <DependentUpon>RezervariReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rezervari Forms\AdaugaRezervare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +186,12 @@
     </Compile>
     <Compile Include="Rezervari Forms\RezervareUserControl.Designer.cs">
       <DependentUpon>RezervareUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervari Forms\RezervariConfigurare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervari Forms\RezervariConfigurare.Designer.cs">
+      <DependentUpon>RezervariConfigurare.cs</DependentUpon>
     </Compile>
     <Compile Include="Rute Forms\AdaugaRuta.cs">
       <SubType>Form</SubType>
@@ -195,14 +273,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rezervare.cs" />
     <Compile Include="RutaAeriana.cs" />
+    <Compile Include="Rute Forms\RutaBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rute Forms\RutaBaseForm.Designer.cs">
+      <DependentUpon>RutaBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rute Forms\StergeRuta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rute Forms\StergeRuta.Designer.cs">
       <DependentUpon>StergeRuta.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart Forms\ChartsManager.resx">
+      <DependentUpon>ChartsManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart Forms\ZboruriChartConfig.resx">
+      <DependentUpon>ZboruriChartConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client Forms\AdaugaClient.resx">
       <DependentUpon>AdaugaClient.cs</DependentUpon>
@@ -213,11 +304,25 @@
     <EmbeddedResource Include="Discounts Forms\SeteazaDiscounts.resx">
       <DependentUpon>SeteazaDiscounts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForms\ClientiReports.resx">
+      <DependentUpon>ClientiReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForms\ReportManager.resx">
+      <DependentUpon>ReportManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForms\Reports\ClientiTotal.rdlc" />
+    <EmbeddedResource Include="ReportForms\Reports\Rezervari.rdlc" />
+    <EmbeddedResource Include="ReportForms\RezervariReports.resx">
+      <DependentUpon>RezervariReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rezervari Forms\AdaugaRezervare.resx">
       <DependentUpon>AdaugaRezervare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rezervari Forms\RezervareUserControl.resx">
       <DependentUpon>RezervareUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rezervari Forms\RezervariConfigurare.resx">
+      <DependentUpon>RezervariConfigurare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rute Forms\AdaugaRuta.resx">
       <DependentUpon>AdaugaRuta.cs</DependentUpon>
@@ -263,11 +368,27 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Rute Forms\StergeRuta.resx">
       <DependentUpon>StergeRuta.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Data Sets\DataSetClienti.xsc">
+      <DependentUpon>DataSetClienti.xsd</DependentUpon>
+    </None>
+    <None Include="Data Sets\DataSetClienti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetClienti.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data Sets\DataSetClienti.xss">
+      <DependentUpon>DataSetClienti.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Persoana.datasource" />
+    <None Include="Properties\DataSources\Rezervare.datasource" />
+    <None Include="Properties\DataSources\RutaAeriana.datasource" />
+    <None Include="Properties\DataSources\Zbor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -282,15 +403,44 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Data Files\Airports.txt" />
+    <Content Include="Resources\Icons\add-circle-green-512.ico" />
+    <Content Include="Resources\Icons\aircompanylogo.ico" />
+    <Content Include="Resources\Icons\if_distributor-report_49583.ico" />
+    <Content Include="Resources\Icons\if_document_3709.ico" />
+    <Content Include="Resources\Icons\if_line-chart_4_322457.ico" />
+    <Content Include="Resources\Icons\if_MetroUI_Configure_176654.ico" />
+    <Content Include="Resources\Icons\if_report_56294.ico" />
+    <Content Include="Resources\Icons\service-512.ico" />
+    <Content Include="Resources\Icons\user_add.ico" />
     <Content Include="Resources\Images\02-Dont-Miss-This-Is-the-Best-Date-To-Get-Cheap-Airline-Tickets-This-Summer-1024x683.jpg" />
+    <Content Include="Resources\Images\air-moldova--72.jpg" />
     <Content Include="Resources\Images\Airplane-1024x683.jpg" />
     <Content Include="Resources\Images\Airport.jpg" />
     <Content Include="Resources\Images\AirPlaneTakeOff.jpg" />
+    <Content Include="Resources\Images\CFRM_ReserveNow_Button.png" />
     <Content Include="Resources\Images\client-1295901_960_720.png" />
     <Content Include="Resources\Images\client_1295901_960_720_efC_icon.ico" />
     <Content Include="Resources\Images\customer-insight.png" />
     <Content Include="Resources\Images\flight-takeoff-hd-13.jpeg" />
     <Content Include="Resources\Images\happy-d-small-person-word-client-isolated-white-rendered-31756756.jpg" />
+    <Content Include="Resources\Images\maxresdefault.jpg" />
+    <Content Include="Resources\Serialization Files\CompanieAeriana.txt" />
+    <Content Include="Resources\Serialization Files\Discounturi.txt" />
+    <Content Include="Resources\Serialization Files\RuteAeriene.xml" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -304,6 +454,31 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+    <Folder Include="Rezervari\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

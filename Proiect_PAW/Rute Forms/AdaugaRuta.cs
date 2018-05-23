@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Proiect_PAW
 {
-    public partial class AdaugaRuta : Form
+    public partial class AdaugaRuta : Rute_Forms.RutaBaseForm
     {
         CompanieAeriana companie;
         public AdaugaRuta(CompanieAeriana companie)
@@ -34,5 +34,6 @@ namespace Proiect_PAW
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
