@@ -28,10 +28,10 @@
     </DataPlecare>
     <DataPlecare data="31/05/2018">
       <Zbor dataPlecare="31/05/2018 11:30:00" nrLocuriDisponibile="145" nrLocuriTotal="145" cost="130" dataSosire="31/05/2018 14:00:00">
-        <Rezervare nrBilete="1" persoana="1649746194656" />
+        <Rezervare nrBilete="1" persoana="6587486478697" />
         <Rezervare nrBilete="1" persoana="6546854854163" />
         <Rezervare nrBilete="1" persoana="3546548694769" />
-        <Rezervare nrBilete="1" persoana="6587486478697" />
+        <Rezervare nrBilete="1" persoana="1649746194656" />
         <Rezervare nrBilete="1" persoana="3616496479469" />
       </Zbor>
     </DataPlecare>
